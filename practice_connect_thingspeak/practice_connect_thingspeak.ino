@@ -25,8 +25,8 @@
 MAX30100 sensor;
 uint32_t tsLastPollUs = 0;
 
-String apiKey = "50SAMLSII2Y9O521";
-const char* ssid = "UCInet Mobile Access";
+String apiKey = "";
+const char* ssid = "";
 const char* password = "";
   float sensor_data=0;
 
@@ -81,7 +81,7 @@ void loop() {
         sensor_data = sensor.rawIRValue;
   }
   if(millis()%10000 == 1) { 
-  if (client.connect(server,80)) { // "184.106.153.149" or api.thingspeak.com
+  if (client.connect(server,80)) { 
     String postStr = apiKey;
     postStr +="&field1=";
     postStr += String(sensor_data);
